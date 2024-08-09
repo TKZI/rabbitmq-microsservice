@@ -1,0 +1,25 @@
+package br.com.tkzi.consumer;
+
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import br.com.tkzi.constantes.RabbitmqConstantes;
+import br.com.tkzi.domain.dto.EstoqueDTO;
+
+@Component
+public class EstoqueConsumer {
+	
+	@RabbitListener(queues = RabbitmqConstantes.FILA_ESTOQUE) //marca pra ser o ouvinte da fila
+	private void consumidor(String mensagem) throws JsonMappingException, JsonProcessingException {
+		EstoqueDTO estoqueDto = new ObjectMapper().readValue(mensagem, EstoqueDTO.class);
+		System.out.println(estoqueDto.codigoproduto);
+		System.out.println(estoqueDto.quantidade);
+		System.out.println("---------------------------");
+		
+	}
+
+}

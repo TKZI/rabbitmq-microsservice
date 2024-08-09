@@ -1,0 +1,24 @@
+package br.com.tkzi.configuration;
+
+import org.springframework.amqp.support.converter.DefaultClassMapper;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class RabbitMqConfigDeserealization {
+	
+	@Bean
+    public Jackson2JsonMessageConverter messageConverter() {
+        // Configura o mapeador de classes para permitir pacotes ou classes específicas
+        DefaultClassMapper defaultClassMapper = new DefaultClassMapper();
+        defaultClassMapper.setTrustedPackages("br.com.tkzi.domain.dto");
+
+        // Configura o conversor de mensagens JSON
+        Jackson2JsonMessageConverter jackson2JsonMessageConverter = new Jackson2JsonMessageConverter();
+        jackson2JsonMessageConverter.setClassMapper(defaultClassMapper);
+
+        return jackson2JsonMessageConverter;
+    }
+
+}

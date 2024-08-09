@@ -1,0 +1,21 @@
+package br.com.tkzi.api.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.tkzi.domain.dto.PrecoDTO;
+
+@RestController
+@RequestMapping("/preco")
+public class PrecoController {
+	
+	@PutMapping
+	private ResponseEntity<PrecoDTO> alterarPreco(@RequestBody PrecoDTO precoDTO){
+		
+		return ResponseEntity.ok().build();
+	}
+
+}

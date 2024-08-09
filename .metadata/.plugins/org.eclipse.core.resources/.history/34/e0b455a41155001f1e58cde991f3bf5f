@@ -1,0 +1,10 @@
+package br.com.tkzi.conections;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class RabbitMqConection {
+	
+	
+
+}

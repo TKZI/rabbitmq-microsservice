@@ -1,0 +1,9 @@
+package br.com.tkzi.domain.dto;
+
+import java.io.Serializable;
+
+public class Estoque implements Serializable {
+	
+	
+
+}

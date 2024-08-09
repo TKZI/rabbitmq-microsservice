@@ -1,0 +1,13 @@
+1722987190415	Rename resource 'application.properties'
+1723071973196	Rename type 'RabbitMqConection'
+1723071982445	Rename package 'br.com.tkzi.conections'
+1723073638783	Rename local variable 'ligacao'
+1723073684272	Rename local variable 'troca'
+1723073699849	Rename method 'trocaDireta'
+1723074269320	Rename method 'adiciona'
+1723075770885	Rename type 'Estoque'
+1723075810754	Rename type 'PrecoDto'
+1723078452435	Rename type 'RabbitMqConnection'
+1723160964829	Copy packages
+1723161213903	Delete element
+1723161226468	Delete element

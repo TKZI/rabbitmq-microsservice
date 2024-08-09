@@ -1,0 +1,19 @@
+package br.com.tkzi.configuration;
+
+import java.util.List;
+
+import org.springframework.amqp.support.converter.SimpleMessageConverter;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class RabbitMqConfigDeserealization {
+	
+	@Bean
+    public SimpleMessageConverter converter() {
+        SimpleMessageConverter converter = new SimpleMessageConverter();
+        converter.setAllowedListPatterns(List.of("xyz.test.common.*", "java.util.*"));
+        return converter;
+    }
+
+}

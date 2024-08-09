@@ -1,0 +1,26 @@
+package br.com.tkzi.config;
+
+import org.springframework.amqp.core.AcknowledgeMode;
+import org.springframework.amqp.rabbit.config.DirectRabbitListenerContainerFactory;
+import org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer;
+import org.springframework.amqp.rabbit.listener.RabbitListenerContainerFactory;
+
+import exeptions.TratamentoErroHandler;
+
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+public class RabbitmqConfig {
+	
+	public RabbitListenerContainerFactory<DirectMessageListenerContainer> rabbitListenerContainerFactory(ConnectionFactory connectionFactory){
+		DirectRabbitListenerContainerFactory factory = new DirectRabbitListenerContainerFactory();
+		
+		factory.setConnectionFactory(connectionFactory);
+		factory.setAcknowledgeMode(AcknowledgeMode.AUTO);
+		
+		factory.setPrefetchCount(4);
+		factory.setErrorHandler(new TratamentoErroHandler());
+		
+		
+		return factory;
+	}
+
+}
